@@ -1,0 +1,42 @@
+<div class="movies">
+  <h2>{{ title }}</h2>
+  <div class="movie-list">
+    <app-movie
+      *ngFor="let movie of movies"
+      [title]="movieTitle"
+      [movie]="movie"
+      (selectedMovie)="getSelectedMovie($event)"
+    ></app-movie>
+  </div>
+  <div *ngIf="!selectedMovie" class="movie-msg">
+    <h2>Please Select a Movie</h2>
+  </div>
+  <div class="movie-details" *ngIf="selectedMovie">
+    <ul>
+      <li class="detail-element">
+        <small>Title:</small>
+        <h3>{{ selectedMovie.title }}</h3>
+      </li>
+      <li class="detail-element">
+        <small>Release Year:</small>
+        <div>{{ selectedMovie.releaseYear }}</div>
+      </li>
+      <li class="detail-element">
+        <small>Director:</small>
+        <div>{{ selectedMovie.directorName }}</div>
+      </li>
+      <li class="detail-element">
+        <small>Producer:</small>
+        <div>{{ selectedMovie.producerName }}</div>
+      </li>
+      <li class="detail-element">
+        <small>Genre:</small>
+        <div>{{ selectedMovie.genre }}</div>
+      </li>
+      <li class="detail-element">
+        <small>Rating:</small>
+        <div>{{ selectedMovie.rating }}</div>
+      </li>
+    </ul>
+  </div>
+</div>
