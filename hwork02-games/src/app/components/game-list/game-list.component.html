@@ -1,0 +1,12 @@
+<h1 class="display-3 text-center">The Return of Games in HTML Homework</h1>
+<div
+  class="container d-flex justify-content-center align-items-center flex-wrap"
+>
+  <app-loading-spinner *ngIf="!games"></app-loading-spinner>
+  <div
+    *ngIf="games"
+    class="container d-flex mt-5 d-flex justify-content-center"
+  >
+    <app-game *ngFor="let game of games" [game]="game"></app-game>
+  </div>
+</div>

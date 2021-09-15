@@ -1,0 +1,42 @@
+<div
+  class="card m-2 border-dark"
+  style="width: 18rem"
+  [ngClass]="game.genre | lowercase"
+>
+  <div class="card-body">
+    <h5 class="card-title mb-2 fs-3 text-center">
+      {{ game.title | uppercase }} - {{ game.title | abbriviate }}
+    </h5>
+    <h6 class="card-subtitle mb-2 text-muted text-center">
+      Rating: {{ game.rating * 0.01 | percent: "0.2-2" }}
+    </h6>
+
+    <ul class="list-group list-group-flush my-3 border border-1">
+      <li class="list-group-item">
+        Release Date: {{ game.releaseDate | date: "mediumDate" }}
+      </li>
+      <li class="list-group-item">
+        Price:
+        {{ !game.price ? "FREE" : (game.price | currency: "EUR") }}
+      </li>
+      <li class="list-group-item">Genre: {{ game.genre | uppercase }}</li>
+      <li
+        class="list-group-item"
+        [ngStyle]="{ color: '#28a745', fontWeight: '700' }"
+      >
+        Publisher: {{ game.publisher }}
+      </li>
+    </ul>
+    <p *ngIf="showDescription" class="card-text mt-3">
+      {{ game.shortDescription }}
+    </p>
+    <button
+      [ngClass]="showDescription ? 'btn-danger' : 'btn-light'"
+      class="btn mt-3 border border-1 border-dark"
+      (click)="onToggleDescription()"
+      type="button"
+    >
+      {{ showDescription ? "Hide Description" : "Read Description" }}
+    </button>
+  </div>
+</div>
