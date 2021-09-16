@@ -1,0 +1,29 @@
+.header {
+    font-size: 1.8em;
+    margin: 10px;
+}
+
+.order__showcase {
+    width: 500px;
+    border: 1px solid black;
+    margin-bottom: 50px;
+    
+}
+
+.order__showcase h2 {
+    height: 60px;
+    border-bottom: 1px solid lightgray;
+    background-color: lightblue;
+    margin: 0;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.main {
+    margin: 0rem 10rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
