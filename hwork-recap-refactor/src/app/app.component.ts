@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Car } from './interfaces/car';
 import { Order } from './interfaces/order';
 import { DataService } from './services/data-service';
@@ -8,16 +8,19 @@ import { DataService } from './services/data-service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   title = 'recap-class';
   carToDisplay: Car;
- 
-  constructor(private dataService: DataService){
+
+  constructor(private dataService: DataService) {}
+
+  subscription = this.dataService.displayCarSubject.subscribe(
+    (car) => (this.carToDisplay = car)
+  );
+
+  orders: Order[] = this.dataService.fetchOrders();
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
-
-  subscription = this.dataService.displayCarSubject.subscribe(car => this.carToDisplay = car)
-
-  orders: Order[] = this.dataService.fetchOrders()
-  
-
 }
