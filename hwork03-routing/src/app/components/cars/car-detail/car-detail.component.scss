@@ -24,10 +24,10 @@
 .inStock {
   background-color: rgb(211, 244, 255);
   transition: 0.1s;
-}
 
-.inStock:hover {
-  background-color: lightskyblue;
+  &:hover {
+    background-color: lightskyblue;
+  }
 }
 
 .isOrdered {
