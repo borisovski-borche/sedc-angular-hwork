@@ -1,0 +1,7 @@
+<div>
+  <h1 *ngIf="cars" class="cars__heading">Available Cars</h1>
+  <h2 class="cars__loading" *ngIf="!cars">Loading</h2>
+  <div *ngIf="cars" class="cars__container">
+    <app-car-detail *ngFor="let car of cars" [car]="car"></app-car-detail>
+  </div>
+</div>

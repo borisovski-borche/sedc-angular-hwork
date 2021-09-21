@@ -1,0 +1,11 @@
+<h1 *ngIf="!orderedCars.length" class="ordered__cars-heading">
+  "No cars ordered, would you like to order a car? If you do
+  <span routerLink="/cars" class="ordered__cars-link">click me!</span>
+</h1>
+<h1 *ngIf="orderedCars.length" class="ordered__cars-heading">Ordered Cars</h1>
+<div class="cars__container">
+  <app-car-detail *ngFor="let car of orderedCars" [car]="car"></app-car-detail>
+</div>
+<div *ngIf="orderedCars.length" class="clear-order__container">
+  <button (click)="onClearOrder()" routerLink="/cars">CLEAR ORDER</button>
+</div>

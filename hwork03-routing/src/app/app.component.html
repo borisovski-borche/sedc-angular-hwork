@@ -1,0 +1,39 @@
+<header class="header">
+  <h1 class="header__heading">Rent-A-Car</h1>
+  <nav class="header__nav">
+    <ul class="nav__list">
+      <li
+        class="nav__list-link"
+        routerLink=""
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Home
+      </li>
+      <li
+        class="nav__list-link"
+        routerLink="/cars"
+        routerLinkActive="active-link"
+      >
+        Cars
+      </li>
+      <li
+        class="nav__list-link"
+        routerLink="/ordered-cars"
+        routerLinkActive="active-link"
+      >
+        Orders
+      </li>
+      <li
+        class="nav__list-link"
+        routerLink="/contact"
+        routerLinkActive="active-link"
+      >
+        Contact
+      </li>
+    </ul>
+  </nav>
+</header>
+<main class="main">
+  <router-outlet></router-outlet>
+</main>

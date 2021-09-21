@@ -1,0 +1,18 @@
+<div class="car__card">
+  <div>
+    <h4>Model: {{ car.model }}</h4>
+    <p>Brand: {{ car.brand }}</p>
+    <p>Year: {{ car.yearOfProduction }}</p>
+  </div>
+  <button
+    (click)="onCarOrder()"
+    [disabled]="!car.inStock || car.ordered"
+    [ngClass]="
+      car.inStock ? (car.ordered ? 'isOrdered' : 'inStock') : 'outOfStock'
+    "
+  >
+    {{
+      car.inStock ? (car.ordered ? "Car Ordered" : "Order Car") : "Out of Stock"
+    }}
+  </button>
+</div>

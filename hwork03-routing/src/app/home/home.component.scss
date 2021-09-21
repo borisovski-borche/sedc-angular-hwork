@@ -1,0 +1,13 @@
+.home__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40rem;
+
+  .home__heading {
+    font-size: 4rem;
+    font-weight: 300;
+    width: 40%;
+    text-align: center;
+  }
+}
