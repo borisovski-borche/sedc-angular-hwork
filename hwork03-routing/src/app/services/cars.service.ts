@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Car } from '../interfaces/car';
-import { CarBrand } from '../interfaces/car-brand';
 import { map } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
@@ -9,7 +8,6 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class CarsService {
-  selectedCars: Car[] = [];
   cars: Car[];
 
   constructor(private http: HttpClient) {}
@@ -19,12 +17,11 @@ export class CarsService {
   apiUrl = 'https://json-server-boris.herokuapp.com/api/cars';
 
   fetchOrderedCars() {
-    return this.selectedCars;
+    return this.cars.filter((car) => car.ordered);
   }
 
   clearOrderedCars() {
-    this.selectedCars.forEach((car) => (car.ordered = false));
-    this.selectedCars = [];
+    this.cars.forEach((car) => (car.ordered = false));
   }
 
   getCars() {
@@ -42,9 +39,6 @@ export class CarsService {
   }
 
   orderCar(car: Car) {
-    if (car.inStock) {
-      if (this.selectedCars.find((arrCar) => arrCar.id === car.id)) return;
-      this.selectedCars = [...this.selectedCars, car];
-    }
+    car.ordered = true;
   }
 }
