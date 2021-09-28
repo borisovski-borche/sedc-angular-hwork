@@ -1,0 +1,3 @@
+{
+  "mongoUri": "mongodb+srv://borisovski-borche:meanbugtracker@cluster0.jwhxf.mongodb.net/RecipeBook?retryWrites=true&w=majority"
+}
