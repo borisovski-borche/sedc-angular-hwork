@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
 import { AllRecipesComponent } from './components/all-recipes/all-recipes.component';
+
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 

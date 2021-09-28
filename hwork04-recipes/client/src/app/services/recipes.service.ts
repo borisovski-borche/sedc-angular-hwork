@@ -20,9 +20,10 @@ export class RecipesService {
   private _recipeToUpdate = new BehaviorSubject<Recipe>({} as Recipe);
 
   getRecipes() {
-    this.recipesRepository
-      .fetchRecipes()
-      .subscribe((recipes) => this._recipes.next(recipes));
+    this.recipesRepository.fetchRecipes().subscribe(
+      (recipes) => this._recipes.next(recipes),
+      (error) => console.log(error.message)
+    );
   }
 
   setRecipeToUpdate(recipe: Recipe) {
@@ -43,9 +44,10 @@ export class RecipesService {
   }
 
   updateRecipe(recipe: Recipe) {
-    this.recipesRepository
-      .updateRecipeInDb(recipe._id, recipe)
-      .subscribe((recipe) => this.updateRecipesRender(recipe));
+    this.recipesRepository.updateRecipeInDb(recipe._id, recipe).subscribe(
+      (recipe) => this.updateRecipesRender(recipe),
+      (error) => console.log(error.message)
+    );
   }
 
   addNewRecipe(recipe: Recipe) {
