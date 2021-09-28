@@ -1,0 +1,33 @@
+<mat-card class="detail__card">
+  <mat-card-header>
+    <mat-card-title>{{ recipe.name }}</mat-card-title>
+  </mat-card-header>
+  <img
+    mat-card-image
+    [src]="
+      recipe.imgUrl ||
+      'https://www.dirtyapronrecipes.com/wp-content/uploads/2015/10/food-placeholder.png'
+    "
+    alt="Photo of a Shiba Inu"
+  />
+  <mat-card-content>
+    <p>
+      {{ recipe.description }}
+    </p>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Ingredients </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-list>
+        <div *ngFor="let ingredient of recipe.ingredients">
+          <mat-list-item>{{ ingredient }}</mat-list-item>
+          <mat-divider></mat-divider>
+        </div>
+      </mat-list>
+    </mat-expansion-panel>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="onRecipeEdit()">EDIT</button>
+    <button mat-button (click)="onRecipeDelete()">DELETE</button>
+  </mat-card-actions>
+</mat-card>

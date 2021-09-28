@@ -1,0 +1,59 @@
+<mat-card class="card">
+  <mat-card-title class="card-title">{{
+    isEditing ? "Edit Recipe" : "Add Recipe"
+  }}</mat-card-title>
+  <form
+    class="recipe__form"
+    [formGroup]="addRecipeForm"
+    (ngSubmit)="onFormSubmit()"
+  >
+    <mat-form-field appearance="fill" class="test">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Image Url</mat-label>
+      <input matInput formControlName="imgUrl" />
+    </mat-form-field>
+    <mat-card-subtitle>Ingredients</mat-card-subtitle>
+    <div class="form__controls">
+      <div class="ingredients__container" formArrayName="ingredients">
+        <mat-form-field
+          appearance="fill"
+          *ngFor="let control of getIngredientCOntrols(); let i = index"
+        >
+          <mat-label>Ingredient</mat-label>
+          <input matInput [formControlName]="i" />
+          <button
+            class="delete__ingredient-btn"
+            matSuffix
+            (click)="onDeleteIgredient(i)"
+          >
+            ✖
+          </button>
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="onAddIngredient()"
+          type="button"
+        >
+          Add Ingredient
+        </button>
+      </div>
+      <div class="form__buttons">
+        <button mat-raised-button color="primary" type="submit">
+          {{ isEditing ? "Edit Recipe" : "Add Recipe" }}
+        </button>
+        <button mat-raised-button color="warn" routerLink="">Cancel</button>
+      </div>
+    </div>
+  </form>
+</mat-card>

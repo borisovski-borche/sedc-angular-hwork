@@ -1,0 +1,13 @@
+.home {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .home__heading {
+    font-size: 5rem;
+    margin: 0 auto;
+    height: auto;
+  }
+}

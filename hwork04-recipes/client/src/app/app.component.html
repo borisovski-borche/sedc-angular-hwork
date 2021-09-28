@@ -1,0 +1,31 @@
+<mat-toolbar color="primary" class="header">
+  <span>Recipe Homework</span>
+  <nav class="header__nav">
+    <a
+      mat-flat-button
+      color="primary"
+      routerLink=""
+      routerLinkActive="link-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Home
+    </a>
+    <a
+      mat-flat-button
+      color="primary"
+      routerLink="/all-recipes"
+      routerLinkActive="link-active"
+    >
+      Recipes
+    </a>
+    <a
+      mat-flat-button
+      color="primary"
+      routerLink="/add-recipe"
+      routerLinkActive="link-active"
+    >
+      Add
+    </a>
+  </nav>
+</mat-toolbar>
+<router-outlet></router-outlet>
